@@ -1,0 +1,10 @@
+cff-version: 1.2.0
+message: If you use this software, please cite it using the metadata below.
+title: Adaptive Palletising with Simulation Optimisation
+type: software
+authors:
+  - family-names: Zhou
+    given-names: Jiayi
+institution: Imperial College London
+abstract: MATLAB and Simulink framework for mixed-case pallet layout, finite-buffer execution planning, and UR10e simulation validation.
+license: BSD-2-Clause

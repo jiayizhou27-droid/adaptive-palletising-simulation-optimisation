@@ -1,0 +1,26 @@
+# MATLAB and Simulink generated files
+slprj/
+*.slxc
+*.mex*
+*.asv
+*.autosave
+*.m~
+*.p
+codegen/
+cache/
+
+# Generated trajectories and result data
+plannedTrajectory*.mat
+*_backup_*.mat
+outputs/
+
+# Local inspection and editor files
+*.inspect.ndjson
+.DS_Store
+Thumbs.db
+.vscode/
+
+# Temporary files
+*.tmp
+*.bak
+~$*

@@ -1,0 +1,2 @@
+TestCases,FaultCases,DetectionRate,FalsePositiveRate,RecoverySuccessRate,TranslationTolerance_m,YawTolerance_deg
+15,14,1,0,1,0.0015,0.5
