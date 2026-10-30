@@ -1,6 +1,6 @@
 # Adaptive Palletising with Simulation Optimisation
 
-This repository contains the MATLAB and Simulink implementation of an MSc project on mixed-case robotic palletising. The workflow connects constraint-aware pallet layout generation, finite-buffer execution planning, UR10e trajectory construction, and Simulation 3D verification.
+This repository contains the MATLAB and Simulink implementation of an MSc project on mixed-case robotic palletising. The workflow connects constraint-aware pallet layout planning, finite-buffer execution planning, UR10e trajectory construction, and Simulation 3D verification.
 
 - [MATLAB and Simulink Challenge Project Hub](https://github.com/mathworks/MATLAB-Simulink-Challenge-Project-Hub)
 - [Adaptive Palletizing with Simulation Optimization project 254](https://github.com/mathworks/MATLAB-Simulink-Challenge-Project-Hub/tree/main/projects/Adaptive%20Palletizing%20with%20Simulation%20Optimization)
@@ -10,7 +10,7 @@ This repository contains the MATLAB and Simulink implementation of an MSc projec
 
 The implementation separates the problem into three stages:
 
-1. Generate a mixed-case pallet layout using a deterministic Constructive method, Constructive-seeded Genetic Algorithm (CS-GA), or Constructive-seeded Simulated Annealing (CS-SA).
+1. Plan a mixed-case pallet layout using a deterministic Constructive method, Constructive-seeded Genetic Algorithm (CS-GA), or Constructive-seeded Simulated Annealing (CS-SA).
 2. Convert the selected target layout into conveyor-to-pallet, conveyor-to-buffer, and buffer-to-pallet actions under a finite buffer capacity.
 3. Construct top-down UR10e pick-and-place trajectories using inverse kinematics, trapezoidal joint trajectories, collision checking, and local Manipulator RRT fallback.
 
@@ -24,7 +24,7 @@ Run the small end-to-end demonstration from MATLAB:
 results = run_demo;
 ```
 
-The default demonstration uses the Constructive layout method with 10 cartons and generates both an execution schedule and robot trajectory. Alternative examples are:
+The default demonstration uses the Constructive layout method with 10 cartons and prepares both an execution schedule and robot trajectory. Alternative examples are:
 
 ```matlab
 results = run_demo(Method="csga", NumCartons=10, MaxEvaluations=25);
@@ -42,7 +42,7 @@ The full Simulation 3D scene requires desktop MATLAB and the listed products. Ru
 
 ## Quick verification
 
-Run the lightweight layout test without robot trajectory generation:
+Run the lightweight layout test without robot trajectory planning:
 
 ```matlab
 results = runtests(fullfile("tests","smoke_test.m"));
@@ -103,7 +103,7 @@ Across the broad layout comparison, all three methods produced complete layouts 
 
 Representative figures are provided in `results/`.
 
-The aggregated CSV records used for the dissertation evidence chain are provided in `experiments/data/`. To regenerate the summary tables and figures from those completed experiment records:
+The aggregated CSV records used for the dissertation evidence chain are provided in `experiments/data/`. To rebuild the summary tables and figures from those completed experiment records:
 
 ```matlab
 originalFolder = pwd;
@@ -117,7 +117,7 @@ outputs = buildThesisEvidenceChain;
 - The public implementation preserves explicit carton identities and a fixed offline target layout during execution scheduling.
 - Geometric support and centre-of-mass checks are quasi-static proxies; carton deformation, friction, compression, and transport vibration are outside the model.
 - Robot results are simulation evidence and do not replace hardware commissioning, safety-rated controls, or formal collision certification.
-- Generated Simulink build folders, caches, backups, and large intermediate result files are excluded from version control.
+- Simulink build folders, caches, backups, and large intermediate result files are excluded from version control.
 
 ## Acknowledgements and provenance
 
